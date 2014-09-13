@@ -13,4 +13,15 @@ describe "A new instance of", Client do
 	  	
 	end
 
+	describe "when name is valid" do
+		# before do
+		# 	@client = Client.new(name:"EB001")
+		# end
+
+		subject { @client }
+
+	    it { should be_valid }
+	  	
+	end
+
 end
