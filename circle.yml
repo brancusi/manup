@@ -1,4 +1,5 @@
-notify:
-  webhooks:
-    # A list of hook hashes, containing the url field
-    - url: https://hooks.cloud66.com/stacks/redeploy/024cd2978a58016a91d1af67edc7a94d/0739aefee649463b424cd8ffa64b4ba7
+deployment:
+  staging:
+    branch: development
+    commands:
+      - ./deploy_staging.sh
