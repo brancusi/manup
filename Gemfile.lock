@@ -33,6 +33,11 @@ GEM
     builder (3.2.2)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
     hike (1.2.3)
     i18n (0.6.11)
     json (1.8.1)
@@ -100,6 +105,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.8.0)
+  factory_girl_rails
   pg
   rails (= 4.1.6)
   rails-api
