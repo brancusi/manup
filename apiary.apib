@@ -4,10 +4,6 @@ HOST: http://monkey.mlvk-api.development.c66.me
 # MLVK Central
 MLVK Central API is a *Food ERP* service. It manages ordering, routing, inventory and production.
 
-# OAUTH
-Resource representing **MLVK API** ouath.
-
-
 # Group Clients
 Clients related resources of the **MLVK API**
 
@@ -47,5 +43,7 @@ A single Client object with all its details
 
             { "id": 3, "name": "John's chocalate shop" }
 
-### Remove a Client [DELETE]
-+ Response 204
+### Delete a Client [DELETE]
+Delete a client. **Warning:** This action **permanently** removes the client from the database.
+
++ Response 204 (application/json)
