@@ -11,7 +11,6 @@ gem "active_model_serializers", "~> 0.8.0"
 gem 'active_record-acts_as'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
   gem 'spring'
   gem 'pry-rails'
   gem 'gist'

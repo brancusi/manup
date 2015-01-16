@@ -1,5 +1,4 @@
-deployment:
-  staging:
-    branch: development
-    commands:
-      - ./deploy_staging.sh
+notify:
+  webhooks:
+    # A list of hook hashes, containing the url field
+    - url: https://example.com/hooks/circle
