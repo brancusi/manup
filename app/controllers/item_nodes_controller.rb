@@ -1,0 +1,2 @@
+class ItemNodesController < ApplicationController
+end

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :ingredients, except: [:new, :edit]
+  resources :recipes, except: [:new, :edit]
+  resources :item_nodes, except: [:new, :edit]
+  resources :products, except: [:new, :edit]
+  resources :items, except: [:new, :edit]
   resources :clients, except: [:new, :edit]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
