@@ -14,6 +14,8 @@ gem 'devise'
 gem 'pundit'
 gem 'versionist'
 
+
+
 group :development, :test do
   gem 'spring'
   gem 'pry-rails'
@@ -22,6 +24,7 @@ end
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'codeclimate-test-reporter'
 end
 
 

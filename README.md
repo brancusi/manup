@@ -1,4 +1,4 @@
-[ ![Codeship Status for brancusi/mlvk-api](https://www.codeship.io/projects/b1ceb370-226d-0132-8503-364bcc8fbc9d/status)](https://www.codeship.io/projects/36535)
+[![Build Status](https://travis-ci.org/brancusi/manup.svg)](https://travis-ci.org/brancusi/manup)
 
 == README
 
