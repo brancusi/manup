@@ -10,6 +10,10 @@ gem "active_model_serializers", "~> 0.8.0"
 
 gem 'active_record-acts_as'
 
+gem 'devise'
+gem 'pundit'
+gem 'versionist'
+
 group :development, :test do
   gem 'spring'
   gem 'pry-rails'
