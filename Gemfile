@@ -10,11 +10,8 @@ gem "active_model_serializers", "~> 0.8.0"
 
 gem 'active_record-acts_as'
 
-gem 'devise'
-gem 'pundit'
+gem 'acl9', '~> 1.0'
 gem 'versionist'
-
-
 
 group :development, :test do
   gem 'spring'
@@ -29,7 +26,7 @@ end
 
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

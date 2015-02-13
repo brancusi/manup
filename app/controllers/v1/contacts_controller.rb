@@ -1,21 +1,20 @@
-class V1::ContactsController < ApplicationController
+class V1::ContactsController < V1::AuthenticatedControllerController
+
+  access_control do
+    allow :admin
+  end
+
 	before_action :set_contact, only: [:show, :update, :destroy]
 
   def index
-    # authorize Contact
-
   	render json: Contact.all
   end
 
   def show
-    authorize @contact
-
     render json: @contact
   end
 
   def create
-    authorize Contact
-
     contact = Contact.new(safe_params)
 
     if contact.save
@@ -27,8 +26,6 @@ class V1::ContactsController < ApplicationController
   end
 
   def update
-    authorize @contact
-
     if @contact.update(safe_params)
       render json: @contact
     else
@@ -37,8 +34,6 @@ class V1::ContactsController < ApplicationController
   end
 
   def destroy
-    authorize @contact
-
     if @contact.destroy
       render status: :ok
     else

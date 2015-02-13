@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150117004254) do
+ActiveRecord::Schema.define(version: 20150213055521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string   "access_token",   null: false
+    t.integer  "user_id",        null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "api_keys", ["access_token"], name: "index_users_on_access_token", unique: true, using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
@@ -25,55 +34,29 @@ ActiveRecord::Schema.define(version: 20150117004254) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string   "nutrition_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",                              null: false
+    t.string   "authorizable_type"
+    t.integer  "authorizable_id"
+    t.boolean  "system",            default: false, null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
-  create_table "item_nodes", force: :cascade do |t|
-    t.integer  "parent_id"
-    t.integer  "child_id"
-    t.decimal  "quantity"
-    t.decimal  "shrinkage_ratio"
-    t.decimal  "fixed_loss"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  add_index "roles", ["authorizable_type", "authorizable_id"], name: "index_roles_on_authorizable_type_and_authorizable_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
   end
 
-  create_table "items", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "actable_id"
-    t.string   "actable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "products", force: :cascade do |t|
-    t.string   "sku"
-    t.integer  "shelf_life"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "recipes", force: :cascade do |t|
-    t.text     "instructions"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "roles_users", ["role_id"], name: "index_roles_users_on_role_id", using: :btree
+  add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "email",           default: "", null: false
+    t.string   "password_digest", default: "", null: false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
@@ -82,6 +65,5 @@ ActiveRecord::Schema.define(version: 20150117004254) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

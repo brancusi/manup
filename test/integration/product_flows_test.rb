@@ -1,11 +1,13 @@
 require 'test_helper'
+require 'json'
 
-class ProductFlowsTest < ActionDispatch::IntegrationTest
-  test "the truth" do
-    assert true
-  end
+class V1::TestControllerTest < ActionDispatch::IntegrationTest
 
-  test "the truth 2" do
-    assert true
+  test "should get v1 - contact index" do
+  	binding.pry
+  	sign_in :user, @user
+    get '/contacts', {}, {'Accept' => 'version=1'}
+    assert_response 200
+    assert_equal "Lassen's", JSON.parse(@response.body)['contacts'][0]['name']
   end
 end
