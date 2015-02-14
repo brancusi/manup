@@ -3,8 +3,8 @@ language: ruby
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database travis_ci_test;' -U postgres
-  - RAILS_ENV=test bundle exec rake db:create db:migrate
-  
+  - RAILS_ENV=test bundle exec rake db:setup
+
 addons:
  code_climate:
   repo_token: cf2ae67c4292efb64b6f6335e144ec12c993c5e5df0e759009ef3b9598f18017

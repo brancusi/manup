@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20150213055521) do
   enable_extension "plpgsql"
 
   create_table "api_keys", force: :cascade do |t|
-    t.string   "access_token",   null: false
-    t.integer  "user_id",        null: false
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "access_token", null: false
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "api_keys", ["access_token"], name: "index_users_on_access_token", unique: true, using: :btree
