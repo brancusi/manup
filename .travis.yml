@@ -5,10 +5,10 @@ before_script:
 - RAILS_ENV=test bundle exec rake db:setup
 addons:
   code_climate:
-    repo_token: <%= ENV["CODECLIMATE_REPO_TOKEN"] %>
+    repo_token: CODECLIMATE_REPO_TOKEN
 notifications:
   slack:
-    secure: <%= ENV["SLACK_TOKEN"] %>
+    secure: SLACK_TOKEN
 deploy:
   provider: cloud66
-  redeployment_hook: <%= ENV["CLOUD_66_REDEPLOYMENT_HOOK"] %>
+  redeployment_hook: CLOUD_66_REDEPLOYMENT_HOOK
