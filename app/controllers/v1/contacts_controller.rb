@@ -1,7 +1,7 @@
 class V1::ContactsController < V1::AuthenticatedControllerController
 
   access_control do
-    allow :admin
+    allow :admin, :viewer
   end
 
 	before_action :set_contact, only: [:show, :update, :destroy]

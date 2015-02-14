@@ -2,3 +2,10 @@ one:
   first_name: Aram
   last_name: Zadikian
   email: az@mlvk.it
+  password_digest: "$2a$10$3gNhkquN1.uwY7mxSAQfB.vQzGiZTACsDHcAG/PWAc5TVbQDBg2adasIu."
+
+two:
+  first_name: Fred
+  last_name: Flinstone
+  email: ff@mlvk.it
+  password_digest: "$2a23h2li3uh2l3.vQzGiZTACsDHcAG/PWAc5TVbQDBg2adasIu."

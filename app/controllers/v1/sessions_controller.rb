@@ -2,7 +2,6 @@ class V1::SessionsController < ApplicationController
   def create
   	user = User.find_by(email:params[:email])
   	if user && user.authenticate(params[:password])
-  		user.retrieve_or_generate_token
   		render json: user
   	else
   		render json: user.errors, status: :unauthorized

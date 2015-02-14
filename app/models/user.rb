@@ -2,23 +2,22 @@ class User < ActiveRecord::Base
 	acts_as_authorization_subject
 	has_secure_password
 
-	after_create :generate_token
+	after_create :access_token
 
 	has_one :api_key, dependent: :destroy
 
 	validates :email, uniqueness: true
 
-	def retrieve_or_generate_token
-		refresh_token if api_key.nil?		
-	end
+	def access_token
+		generate_token if api_key.nil?
 
-	def refresh_token
-		destroy_token
-		generate_token		
+		api_key.access_token
 	end
 
 	def generate_token
-		ApiKey.create!(user_id:id)
+		destroy_token
+		ApiKey.create!(user:self)
+		api_key.access_token
 	end
 
 	def destroy_token
