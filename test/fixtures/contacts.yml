@@ -4,10 +4,8 @@ lassens1:
   name: Lassen's
   code: LA001
   nickname: Lassen's Los Felix
-  credit_rate: .5
 
 lassens2:
   name: Lassen's
   code: LA002
   nickname: Lassen's Echo Park
-  credit_rate: .5

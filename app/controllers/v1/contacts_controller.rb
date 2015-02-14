@@ -4,10 +4,10 @@ class V1::ContactsController < V1::AuthenticatedControllerController
     allow :admin, :viewer
   end
 
-	before_action :set_contact, only: [:show, :update, :destroy]
+  before_action :set_contact, only: [:show, :update, :destroy]
 
   def index
-  	render json: Contact.all
+    render json: Contact.all
   end
 
   def show
@@ -47,7 +47,7 @@ class V1::ContactsController < V1::AuthenticatedControllerController
     end
 
     def safe_params
-      params.require(:contact).permit(:name, :code, :credit_rate)
+      params.require(:contact).permit(:name, :code)
     end
 
 end

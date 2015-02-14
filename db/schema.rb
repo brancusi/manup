@@ -23,13 +23,12 @@ ActiveRecord::Schema.define(version: 20150213055521) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "api_keys", ["access_token"], name: "index_users_on_access_token", unique: true, using: :btree
+  add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true, using: :btree
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "code"
+    t.string   "name",  null: false
+    t.string   "code",  null: false
     t.string   "nickname"
-    t.decimal  "credit_rate"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -55,13 +54,13 @@ ActiveRecord::Schema.define(version: 20150213055521) do
   add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           default: "", null: false
-    t.string   "password_digest", default: "", null: false
-    t.string   "first_name"
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
+    t.string   "first_name",      null: false
     t.string   "last_name"
     t.string   "phone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
