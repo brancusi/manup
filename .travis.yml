@@ -9,3 +9,7 @@ addons:
 notifications:
   slack:
     secure: pkajOHpd1rVjRJhkx6FiFJ4MwG6rgL+G2P9l5tBRLu+SAfurTCSiMQxmJzafmsgWxA8+MaJBiCnFOPD59NxQXoIcwAV8r7FGDaJ9zZZFzev+hbsgMkEfxEeEkZ/cExfPdq9F4+n7OXa8AmmYr7jckSUkajPhVU2bs26l+9yWN4s=
+deploy:
+  provider: cloud66
+  redeployment_hook: <%= ENV['CLOUD_66_REDEPLOYMENT_HOOK'] %>
+  on: development
