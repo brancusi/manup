@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/brancusi/manup.svg)](https://travis-ci.org/brancusi/manup)
 
+[![Code Climate](https://codeclimate.com/github/brancusi/manup/badges/gpa.svg)](https://codeclimate.com/github/brancusi/manup)
+
+[![Test Coverage](https://codeclimate.com/github/brancusi/manup/badges/coverage.svg)](https://codeclimate.com/github/brancusi/manup)
+
 == README
 
 This README would normally document whatever steps are necessary to get the
