@@ -3,11 +3,11 @@ one:
   first_name: Fred
   last_name: Flinstone
   email: ff@bedrock.com
-  password_digest: "password_digest_1"
+  password_digest: "$2a$04$cpDfaosDnPXCjwQV2/DiXe2Oo7a2F94Ta2ARpq7r3kj9ZCRXbz.ju"
 
 two:
   id: 2
   first_name: Wilma
   last_name: Flinstone
   email: wf@bedrock.com
-  password_digest: "password_digest_2"
+  password_digest: "$2a$04$cpDfaosDnPXCjwQV2/DiXe2Oo7a2F94Ta2ARpq7r3kj9ZCRXbz.ju"
