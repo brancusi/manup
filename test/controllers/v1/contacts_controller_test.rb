@@ -70,7 +70,7 @@ class V1::ContactsControllerTest < ActionController::TestCase
     end
 
     test "viewers should not update contacts" do
-      put(:update, {'id'=>Contact.first.id, 'name'=>'Evil Coo'})
+      put(:update, {'id'=>Contact.first.id, 'name'=>'Evil Co'})
       assert_response :unauthorized
     end
 
