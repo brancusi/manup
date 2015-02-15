@@ -13,6 +13,9 @@ gem 'active_record-acts_as'
 gem 'acl9', '~> 1.0'
 gem 'versionist'
 
+# To use ActiveModel has_secure_password
+gem 'bcrypt'
+
 group :development, :test do
   gem 'spring'
   gem 'pry-rails'
@@ -20,13 +23,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'codeclimate-test-reporter'
 end
-
-
-# To use ActiveModel has_secure_password
-gem 'bcrypt'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

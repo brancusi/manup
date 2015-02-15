@@ -51,11 +51,6 @@ GEM
     coderay (1.1.0)
     docile (1.1.5)
     erubis (2.7.0)
-    factory_girl (4.5.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.5.0)
-      factory_girl (~> 4.5.0)
-      railties (>= 3.0.0)
     gist (4.3.0)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
@@ -147,7 +142,6 @@ DEPENDENCIES
   active_record-acts_as
   bcrypt
   codeclimate-test-reporter
-  factory_girl_rails
   gist
   pg
   pry-rails
