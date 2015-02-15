@@ -21,7 +21,7 @@ class V1::ContactsControllerTest < ActionController::TestCase
     end
 
     test "admins should create contacts" do
-      post(:create, {:contact=>{:name => 'Barney', :code => '001'}})
+      post(:create, {:name => 'Barney', :code => '001'})
       assert_response :success
       data = JSON.parse @response.body
       
@@ -76,7 +76,7 @@ class V1::ContactsControllerTest < ActionController::TestCase
 
     test "viewers should not delete contact" do
       delete(:destroy, {:id=>Contact.first})
-      assert_response :current_usernauthorized
+      assert_response :unauthorized
     end
 
   end
