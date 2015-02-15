@@ -10,6 +10,16 @@ class ActiveSupport::TestCase
   fixtures :all
   
   # Add more helper methods to be used by all tests here...
+
+end
+
+class ActionController::TestCase
+  def login(role)
+    user = User.first
+    user.has_role! role
+    @controller.current_user = user
+
+  end
 end
 
 # class ActionDispatch::IntegrationTest

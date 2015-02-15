@@ -1,7 +1,24 @@
 class V1::ContactsController < V1::AuthenticatedControllerController
 
   access_control do
-    allow :admin, :viewer
+
+    action :index do
+      allow :viewer
+      allow :admin
+    end
+
+    action :create do
+      allow :admin
+    end
+
+    action :update do
+      allow :admin
+    end
+
+    action :destroy do
+      allow :admin
+    end
+
   end
 
   before_action :set_contact, only: [:show, :update, :destroy]
@@ -35,7 +52,7 @@ class V1::ContactsController < V1::AuthenticatedControllerController
 
   def destroy
     if @contact.destroy
-      render status: :ok
+      render json: {:message=>"Contact deleted."}, status: :ok
     else
       render json: @contact.errors, status: :unprocessable_entity
     end
@@ -47,7 +64,7 @@ class V1::ContactsController < V1::AuthenticatedControllerController
     end
 
     def safe_params
-      params.require(:contact).permit(:name, :code)
+      params.permit(:name, :code)
     end
 
 end
