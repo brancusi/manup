@@ -5,10 +5,12 @@ before_script:
 - RAILS_ENV=test bundle exec rake db:setup
 addons:
   code_climate:
-    repo_token: CODECLIMATE_REPO_TOKEN
-notifications:
-  slack:
-    secure: SLACK_TOKEN
+    repo_token:
+      secure: RpRde/cjtya1Xk/8JVgJO1I5MrIFmSMzpDD1h5Y/pAR6iGB38oSa/icKXtEbqusE00IBJaAVvRI7EUzvD9bOsdJagqaGD0d0ofdWSeaQQAwrx673/FQQvV9rIPmOmVs05LhJqsQeYuEzxXWzlSKiS5ktTXu7y+BJMBGRlVsQ95w=
 deploy:
   provider: cloud66
-  redeployment_hook: CLOUD_66_REDEPLOYMENT_HOOK
+  redeployment_hook:
+    secure: ZULDCtJl36F8RMtCA/35uCEnQILxePrODjT+q7wBXnZuA4iuHkz/srxlErInTEtflMKtEeDncGqggHjjCNvtifrC91aoY4RJP8brg+ZJ2s8GTHuN+Rd2xsapUcuucO17U+gZUg7J16gEuj51o21Jtcs0mf6n9c9SkHZw0ASTdfQ=
+notifications:
+  slack:
+    secure: iQEyAOmPWt4AfzQvtJGlGtFpMYa2zk+K+p8tazryh4fUFTIr1vIegM+MwzG0ANRxwBGaPeJ9VZzpPUHjoJ1g8xBAC1U9DIH7mXeU6uyvsVInW9FwquB3fkBc0dxX8qLsECrBN03zGNUh0+0X0EYWH3Ml7tOMw9xNy9Fsse6YeXI=
