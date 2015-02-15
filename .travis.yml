@@ -1,5 +1,7 @@
 language: ruby
-cache: bundler
+cache:
+  directories:
+  - vendor/bundle
 before_script:
 - cp config/database.yml.travis config/database.yml
 - psql -c 'create database travis_ci_test;' -U postgres
