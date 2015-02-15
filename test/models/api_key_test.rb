@@ -9,7 +9,7 @@ class ApiKeyTest < ActiveSupport::TestCase
   test "generate new unique token" do
     api_key = User.first.api_key
     old_token = api_key.access_token
-    new_token = api_key.refresh_token
+    new_token = api_key.refresh_access_token!
     assert_not_equal old_token, new_token
   end
 

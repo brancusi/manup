@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(version: 20150213055521) do
 
   add_index "api_keys", ["access_token"], name: "index_api_keys_on_access_token", unique: true, using: :btree
 
-  create_table "contacts", force: :cascade do |t|
-    t.string   "name",  null: false
-    t.string   "code",  null: false
-    t.string   "nickname"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "roles", force: :cascade do |t|
     t.string   "name",                              null: false
     t.string   "authorizable_type"

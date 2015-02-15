@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 		resources :contacts, except: [:new, :edit]
 		resources :users, except: [:new, :edit]
-		resources :sessions, only: [:create, :destroy]
+		resources :access_tokens, only: [:create]
 		
 	end
 

@@ -14,12 +14,17 @@ class ActiveSupport::TestCase
 end
 
 class ActionController::TestCase
+
   def login(role)
     user = User.first
     user.has_role! role
     @controller.current_user = user
-
   end
+
+  def logout
+    @controller.current_user = nil
+  end
+
 end
 
 # class ActionDispatch::IntegrationTest

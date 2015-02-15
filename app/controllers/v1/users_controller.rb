@@ -1,7 +1,25 @@
-class V1::UsersController < ApplicationController
+class V1::UsersController < V1::AuthenticatedControllerController
+  before_action :set_user, only: [:show, :update, :destroy]
+
+  access_control do
+    allow :admin, :to => [:index]
+    allow :admin, :owner, :to => [:show]
+    allow all, anonymous, :to => [:create]
+    allow :admin, :owner, :to => [:update, :destroy]
+  end
+
+  def index
+    render json: User.all
+  end
+
+  def show
+    render json: @user
+  end
+
   def create
-    user = User.new(user_params)
-        
+    user = User.new(safe_params)
+    user.has_role! :owner, user
+
     if user.save
         render json: user
     else
@@ -9,8 +27,28 @@ class V1::UsersController < ApplicationController
     end
   end
 
+  def update
+    if @user.update(safe_params)
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      render json: {:message=>"User deleted."}, status: :ok
+    else
+      render json: @contact.errors, status: :unprocessable_entity
+    end
+  end
+
   private
-  def user_params
-    params.permit(:first_name, :email, :password, :password_confirmation)
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def safe_params
+    params.permit(:first_name, :last_name, :phone, :email, :password, :password_confirmation)
   end
 end
