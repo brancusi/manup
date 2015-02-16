@@ -13,23 +13,24 @@ class V1::UsersControllerTest < ActionController::TestCase
     end
 
     test "admins should get user list" do
+
       get :index
       assert_response :success
       data = JSON.parse @response.body
       
-      assert_equal data['users'][0]['first_name'], "Fred"
+      assert_not_nil data['users'].last['first_name']
     end
 
     test "admins should get single user" do
-      get(:show, {id:User.first})
+      get(:show, {id:@test_user.id})
       assert_response :success
       data = JSON.parse @response.body
       
-      assert_equal data['first_name'], "Fred"
+      assert_equal data['first_name'], @test_user.first_name
     end
 
     test "admins should create users" do
-      post(:create, {first_name:'Barney', email:'br@bedrock.com', password:'password'})
+      post(:create, {first_name:'Barney', email:'br@bedrock.com', password:'password', password_confirmation:'password'})
       assert_response :success
       data = JSON.parse @response.body
       
@@ -37,7 +38,7 @@ class V1::UsersControllerTest < ActionController::TestCase
     end
 
     test "admins should update users" do
-      put(:update, {id:User.first, last_name:'Rubble'})
+      put(:update, {id:@test_user.id, last_name:'Rubble'})
       assert_response :success
       data = JSON.parse @response.body
       
@@ -45,7 +46,7 @@ class V1::UsersControllerTest < ActionController::TestCase
     end
 
     test "admins should delete users" do
-      delete(:destroy, {:id=>User.first})
+      delete(:destroy, {:id=>@test_user.id})
 
       assert_response :success
       data = JSON.parse @response.body
@@ -59,6 +60,7 @@ class V1::UsersControllerTest < ActionController::TestCase
 
     def setup
       login :owner
+      @test_user.has_role!(:owner, @test_user)
     end
 
     test "owners should not get user list" do
@@ -67,15 +69,16 @@ class V1::UsersControllerTest < ActionController::TestCase
     end
 
     test "owners should get their user account" do
-      get(:show, {id:User.first})
+      
+      get(:show, {id:@test_user.id})
       assert_response :success
       data = JSON.parse @response.body
       
-      assert_equal data['first_name'], "Fred"
+      assert_equal data['first_name'], @test_user.first_name, "Name matches expected result"
     end
 
     test "owners should create users" do
-      post(:create, {first_name:'Barney', email:'br@bedrock.com', password:'password'})
+      post(:create, {first_name:'Barney', email:'br@bedrock.com', password:'password', password_confirmation:'password'})
       assert_response :success
       data = JSON.parse @response.body
       
@@ -83,7 +86,9 @@ class V1::UsersControllerTest < ActionController::TestCase
     end
 
     test "owners should update their user account" do
-      put(:update, {id:User.first, last_name:'Rubble'})
+      
+      put(:update, {id:@test_user.id, last_name:'Rubble'})
+
       assert_response :success
       data = JSON.parse @response.body
       
@@ -91,7 +96,8 @@ class V1::UsersControllerTest < ActionController::TestCase
     end
 
     test "owners should delete their user account" do
-      delete(:destroy, {:id=>User.first})
+
+      delete(:destroy, {id:@test_user.id})
 
       assert_response :success
       data = JSON.parse @response.body

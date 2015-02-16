@@ -1,14 +1,14 @@
 class V1::AuthenticatedControllerController < ApplicationController
   include ActionController::HttpAuthentication::Token::ControllerMethods
 	
+  attr_accessor :current_user
+
   before_filter :check_login
 
   rescue_from Acl9::AccessDenied, with: :user_not_authorized
 
-  attr_accessor :current_user
-
   def check_login
-    authenticate if self.current_user.nil?
+    authenticate if current_user.nil?
   end
 
   private

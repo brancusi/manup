@@ -7,14 +7,19 @@ class ApiKeyTest < ActiveSupport::TestCase
   end
 
   test "generate new unique token" do
-    api_key = User.first.api_key
+    api_key = ApiKey.create(user:User.first)
     old_token = api_key.access_token
-    new_token = api_key.refresh_access_token!
-    assert_not_equal old_token, new_token
+    new_token = api_key.refresh_access_token
+    assert_not_equal old_token, new_token, "Tokens don't match"
   end
 
   test "deleting user destroys api_key" do
-    destroyed_user = User.first.destroy
-    assert destroyed_user.api_key.destroyed?, 'ApiKey was not destroyed when user was'
+
+    api_key = ApiKey.create(user:User.first)
+    before_count = ApiKey.all.count
+    User.first.destroy
+    after_count = ApiKey.all.count
+
+    assert after_count < before_count, 'ApiKey was not destroyed when user was'
   end
 end

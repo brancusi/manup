@@ -1,13 +1,11 @@
-one:
-  id: 1
+fred:
   first_name: Fred
-  last_name: Flinstone
-  email: ff@bedrock.com
-  password_digest: "$2a$04$cpDfaosDnPXCjwQV2/DiXe2Oo7a2F94Ta2ARpq7r3kj9ZCRXbz.ju"
+  last_name: Flintstone
+  email: fred@flintstone.com
+  password_digest: <%= default_password_digest %>
 
-two:
-  id: 2
+wilma:
   first_name: Wilma
-  last_name: Flinstone
-  email: wf@bedrock.com
-  password_digest: "$2a$04$cpDfaosDnPXCjwQV2/DiXe2Oo7a2F94Ta2ARpq7r3kj9ZCRXbz.ju"
+  last_name: Flintstone
+  email: wilma@flintstone.com
+  password_digest: <%= default_password_digest %>

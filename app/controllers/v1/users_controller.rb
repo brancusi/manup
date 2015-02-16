@@ -1,11 +1,13 @@
 class V1::UsersController < V1::AuthenticatedControllerController
   before_action :set_user, only: [:show, :update, :destroy]
 
-  access_control do
-    allow :admin, :to => [:index]
-    allow :admin, :owner, :to => [:show]
+  access_control :debug => true do
+    
+    allow :admin    
+    allow :viewer, :to => [:index]
     allow all, anonymous, :to => [:create]
-    allow :admin, :owner, :to => [:update, :destroy]
+    allow :owner, :of => :user, :to => [:show, :update, :destroy]
+
   end
 
   def index

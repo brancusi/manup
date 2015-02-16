@@ -4,8 +4,7 @@ Rails.application.routes.draw do
 				:header => {:name => "0.0.1", :value => "0.0.1"}, 
 				:defaults => {:format => :json}, 
 				:default => true) do
-
-		resources :contacts, except: [:new, :edit]
+    
 		resources :users, except: [:new, :edit]
 		resources :access_tokens, only: [:create]
 		
