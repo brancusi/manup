@@ -8,8 +8,6 @@ gem 'pg'
 
 gem "active_model_serializers", "~> 0.8.0"
 
-gem 'active_record-acts_as'
-
 gem 'acl9', '~> 1.0'
 gem 'versionist'
 
