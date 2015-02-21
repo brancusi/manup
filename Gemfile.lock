@@ -50,6 +50,9 @@ GEM
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     docile (1.1.5)
+    dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     erubis (2.7.0)
     eventmachine (1.0.7)
     gist (4.3.0)
@@ -148,6 +151,7 @@ DEPENDENCIES
   active_record-acts_as
   bcrypt
   codeclimate-test-reporter
+  dotenv-rails
   gist
   pg
   pry-rails

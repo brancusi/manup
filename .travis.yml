@@ -15,3 +15,7 @@ deploy:
 notifications:
   slack:
     secure: iQEyAOmPWt4AfzQvtJGlGtFpMYa2zk+K+p8tazryh4fUFTIr1vIegM+MwzG0ANRxwBGaPeJ9VZzpPUHjoJ1g8xBAC1U9DIH7mXeU6uyvsVInW9FwquB3fkBc0dxX8qLsECrBN03zGNUh0+0X0EYWH3Ml7tOMw9xNy9Fsse6YeXI=
+env:
+  global:
+  - secure: PH23s1WgR4w9FNCxmVJclm/BZhrjNcWbSmv9REQYzp8e2NYn2DyD1kxjmQe5YFUsm4nT4wQTDsddGvCZz7CSQkJBznxjvTFYD6GHzOS8UMiqcGWLWWVPTsmTWVtxi4tG4B6ntBhX7gBg8QDR59TPyRqetb/uOhPAZ8ToqQv2pnU=
+  - secure: YdL/7BFY2Q69FajVo7MjcZEF3WNTttKCFaLoJVxt/03JNKuBeNDHGN02u85+42Euo/xS50y3PVdgArhKV1zh2VWjVmxwZEn37RnYAMFqlQicX8JtfmwNS5aBkwedszd9jxdhNhEavZ33pzGDFwcH7GG7bUkW1zfHy8lfwuUHZVU=
