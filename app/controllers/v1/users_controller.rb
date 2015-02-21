@@ -23,6 +23,13 @@ class V1::UsersController < V1::AuthenticatedControllerController
     user.has_role! :owner, user
 
     if user.save
+        $pubnub.publish(
+          :channel => 'pubnub_chat',
+          :callback => lambda {|x|},
+          :message => {
+              :message => "Oh shit son!"
+          })
+
         render json: user
     else
         render json: user.errors, status: :bad_request

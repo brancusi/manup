@@ -16,6 +16,8 @@ gem 'versionist'
 # To use ActiveModel has_secure_password
 gem 'bcrypt'
 
+gem 'pubnub'
+
 group :development, :test do
   gem 'spring'
   gem 'pry-rails'
